@@ -1,12 +1,29 @@
 # context-mcp
 
-An [MCP](https://modelcontextprotocol.io) server for [Context.dev](https://context.dev) — give Claude Desktop, Claude Code, Cursor, or any MCP-compatible agent the ability to scrape, crawl, and extract structured data from the web.
+A typed-tools [MCP](https://modelcontextprotocol.io) server for [Context.dev](https://context.dev) — give Claude Desktop, Claude Code, Cursor, Cline, or any MCP-compatible agent the ability to scrape, crawl, and extract structured data from the web.
 
 > Community-built. Not officially affiliated with Context.dev.
 
+## How this differs from the official Stainless MCP
+
+Context.dev's SDKs ship with an [official Stainless-hosted MCP](https://context-dev.stlmcp.com) that exposes two tools: `search_docs` (search the SDK docs) and `execute` (run an LLM-generated TypeScript snippet against the SDK). It's a brilliant fit for **coding-assistant** workflows in Cursor/VS Code — the model writes TS to compose API calls and runs it.
+
+This server fills the other half of the use case:
+
+| | Stainless MCP (official) | context-mcp (this repo) |
+|---|---|---|
+| **Audience** | Devs integrating the SDK | End-user agents using Context as a tool |
+| **Tool surface** | 2 meta-tools (search + execute) | 4 typed domain tools |
+| **Per-call overhead** | LLM writes & runs TypeScript | Direct tool call, no code-gen |
+| **Works with small models** | Needs a model that writes TS well | Works with Haiku-class |
+| **Transport** | Hosted HTTP at stlmcp.com | Local stdio (no third-party hop) |
+| **Best for** | Cursor power users | Claude Desktop / Cline / Continue / agent runtimes |
+
+Use both — they don't compete.
+
 ## What it does
 
-Exposes four Context.dev endpoints as MCP tools:
+Exposes four Context.dev endpoints as first-class MCP tools:
 
 | Tool | Endpoint | What it's for |
 |---|---|---|
@@ -24,7 +41,7 @@ npm install -g context-mcp
 Or run from source:
 
 ```bash
-git clone https://github.com/<your-handle>/context-mcp
+git clone https://github.com/anishthetechie/context-mcp
 cd context-mcp
 npm install
 npm run build

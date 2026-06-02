@@ -1,48 +1,51 @@
 # Outreach draft
 
-Two versions below — pick whichever feels right. Both deliberately short (founders read on phones, scan in <10s, reply or don't).
+**Target:** Yahia Bakour — solo founder of Context.dev (rebranded from Brand.dev March 2026), YC S26.
+**Channels (in order of likely response rate):**
+1. **Twitter/X DM → [@mynameisyahia](https://x.com/mynameisyahia)** — solo founders read DMs, low friction, short-form is native
+2. **LinkedIn DM → [/in/yahia-bakour/](https://www.linkedin.com/in/yahia-bakour/)** — second-best; he's active there
+3. **Email** — only if you can find it (try `yahia@context.dev` — single-founder shop)
+
+Two versions below — pick whichever feels right. Both deliberately short.
 
 ---
 
-## Version A — direct, no-fluff
+## Version A — direct, no-fluff (best for email or LinkedIn)
 
-**Subject:** Built you an MCP server for Context — open-source, takes 30s to install
+**Subject:** A typed-tools MCP for Context, to complement your Stainless one
 
-Hi [Founder first name],
+Hi Yahia,
 
-Congrats on the S26 batch.
+Congrats on S26 and the Brand → Context rebrand.
 
-I noticed Context didn't have an MCP server yet, so I built one over the weekend: **<repo-url>**
+I poked at the Stainless MCP you ship in the SDK repos — it's a clever pattern (search_docs + execute), and perfect for Cursor users who want a code-interpreter with the Context SDK preloaded. But it leaves a gap: end-user agents (Claude Desktop, Cline, Continue, smaller models) that just want to *use* Context as a tool, not write TS to call it.
 
-It wraps `scrape_markdown`, `crawl_site`, `extract_structured_data`, and `retrieve_brand` as MCP tools, so anyone using Claude Desktop, Claude Code, or Cursor can install Context in 30 seconds and start using it from inside their agent.
+So I built a typed-tools MCP for that side: **<repo-url>**
 
-60-second Loom of it running inside Claude: **<loom-url>**
+4 first-class tools — `scrape_markdown`, `crawl_site`, `extract_structured_data`, `retrieve_brand` — Zod-validated, no code-gen step, runs on stdio. Claude sees the tool and calls it directly; works with Haiku-class models that can't reliably write correct TypeScript on the fly.
 
-I'm a [your role / year, e.g. "rising senior at <school> studying CS"]. I build agentic systems daily and Context is exactly the infra layer I'd want to be working on. Any chance you're hiring interns this summer? Happy to keep shipping these — there are 20+ more endpoints to wrap, and the same pattern would unlock Cursor / Continue / Cline distribution for you.
+60s Loom of it inside Claude Desktop: **<loom-url>**
 
-Either way — feel free to take the MCP server. MIT-licensed, your team's free to fork it into an official repo.
+I'm [your role / year, e.g. "rising senior at <school> studying CS"]. I build agentic systems daily and Context is exactly the infra layer I'd want to be working on. You're solo — an intern who ships things like this without being asked would actively help. Any chance you're hiring this summer? Happy to keep going: 20+ more endpoints to wrap, plus the inverse direction (Context-as-MCP-client that can call other agents' tools) is unexplored.
+
+Either way — repo's MIT, fork it into an official @context-dev one whenever.
 
 — Anish
+[LinkedIn / GitHub link]
 
 ---
 
-## Version B — slightly warmer
+## Version B — Twitter DM (short, scannable on phone)
 
-**Subject:** Built Context an MCP server (open-source) — any chance you're hiring?
+Hey Yahia — congrats on S26.
 
-Hey [Founder first name],
+Built a typed-tools MCP for Context to complement your Stainless one (which is great for Cursor code-gen, but heavyweight for end-user agents): <repo-url>
 
-Quick one — I've been building with Claude Code and noticed Context.dev had clean REST + SDKs but no MCP server. That's a gap, because MCP is how every agent (Claude, Cursor, Continue) installs new tools right now. So I built one:
+4 first-class tools (scrape, crawl, extract, brand), zero code-gen step, runs on stdio. Works in Claude Desktop / Cline / Continue + with small models. 60s demo: <loom-url>
 
-→ **<repo-url>** — 4 tools (scrape, crawl, extract, brand), one `npx` install, MIT
-→ **<loom-url>** — 60s of it running in Claude Desktop
+You're solo — I'd love to be the intern who keeps shipping things like this. [Your one-liner — school, year, what you build]. Hiring?
 
-You can fork it into an official @context-dev repo, ignore it, or hire me to keep shipping things like this. I'm [your one-liner — school, year, what you build]. Context is exactly the layer of the AI stack I want to be working on.
-
-If there's any chance of a summer internship, I'd love to talk. If not, repo's yours regardless.
-
-— Anish
-[your LinkedIn / GitHub / portfolio link]
+Repo's yours regardless (MIT).
 
 ---
 
@@ -59,8 +62,9 @@ If there's any chance of a summer internship, I'd love to talk. If not, repo's y
 - [ ] Replace `<repo-url>` with the actual GitHub URL
 - [ ] Record a 60s Loom: open Claude Desktop, ask it *"Scrape stripe.com/pricing and summarize the tiers"*, then *"Get Airbnb's brand colors"* — show both tool calls firing
 - [ ] Replace `<loom-url>`
-- [ ] Replace `[Founder first name]` and `[your role]`
-- [ ] Send from a real email (not Gmail-looking-spammy) — ideally your school address
+- [ ] Replace `[your role]` / `[your one-liner]` and your `[LinkedIn / GitHub link]`
+- [ ] If emailing: send from your school address, not a generic Gmail
+- [ ] If DM'ing on Twitter: follow him first so the DM doesn't land in "Requests"
 
 ## What to NOT do
 
