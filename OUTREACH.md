@@ -20,7 +20,7 @@ Congrats on S26 and the Brand → Context rebrand.
 
 I poked at the Stainless MCP you ship in the SDK repos — it's a clever pattern (search_docs + execute), and perfect for Cursor users who want a code-interpreter with the Context SDK preloaded. But it leaves a gap: end-user agents (Claude Desktop, Cline, Continue, smaller models) that just want to *use* Context as a tool, not write TS to call it.
 
-So I built a typed-tools MCP for that side: **<repo-url>**
+So I built a typed-tools MCP for that side: **https://github.com/anishthetechie/context-mcp**
 
 4 first-class tools — `scrape_markdown`, `crawl_site`, `extract_structured_data`, `retrieve_brand` — Zod-validated, no code-gen step, runs on stdio. Claude sees the tool and calls it directly; works with Haiku-class models that can't reliably write correct TypeScript on the fly.
 
@@ -39,7 +39,7 @@ Either way — repo's MIT, fork it into an official @context-dev one whenever.
 
 Hey Yahia — congrats on S26.
 
-Built a typed-tools MCP for Context to complement your Stainless one (which is great for Cursor code-gen, but heavyweight for end-user agents): <repo-url>
+Built a typed-tools MCP for Context to complement your Stainless one (which is great for Cursor code-gen, but heavyweight for end-user agents): https://github.com/anishthetechie/context-mcp
 
 4 first-class tools (scrape, crawl, extract, brand), zero code-gen step, runs on stdio. Works in Claude Desktop / Cline / Continue + with small models. 60s demo: <loom-url>
 
@@ -58,8 +58,8 @@ Repo's yours regardless (MIT).
 
 ## Before you send
 
-- [ ] Push to GitHub: `gh repo create context-mcp --public --source=. --push`
-- [ ] Replace `<repo-url>` with the actual GitHub URL
+- [x] Push to GitHub → https://github.com/anishthetechie/context-mcp
+- [x] Bake real repo URL into the drafts
 - [ ] Record a 60s Loom: open Claude Desktop, ask it *"Scrape stripe.com/pricing and summarize the tiers"*, then *"Get Airbnb's brand colors"* — show both tool calls firing
 - [ ] Replace `<loom-url>`
 - [ ] Replace `[your role]` / `[your one-liner]` and your `[LinkedIn / GitHub link]`
